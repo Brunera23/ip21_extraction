@@ -1,0 +1,4 @@
+# Essential packages for the Aspen IP.21 data extraction and manipulation project
+pandas>=1.4      # DataFrame manipulation
+pyodbc>=4.0      # ODBC connection for SQL databases, such as Aspen IP.21
+
