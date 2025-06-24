@@ -14,7 +14,7 @@ except Exception as error:
 servers = config.get("Servers",{})
 crediantials = config.get("Credentials",{})
 
-print(crediantials)
+# print(crediantials)
 
 
 

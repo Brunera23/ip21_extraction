@@ -3,7 +3,7 @@ import pandas as pd
 from appsettings import servers,crediantials
 # from source.utils import on_off_to_binary
 
-def get_connection(host,user,pwd, gbu,site):
+def get_connection(host,user,pwd):
     CONN_STR = (
     "DRIVER={AspenTech SQLplus};"
     f"HOST={host};"
@@ -14,10 +14,15 @@ def get_connection(host,user,pwd, gbu,site):
     "CHARFLOAT=N;"
     "CHARTIME=N;"
     "ansi=True"
-)
+)   
+    conn = pyodbc.connect(CONN_STR)
+    conn.setdecoding(pyodbc.SQL_CHAR,encoding='cp1252')
+    conn.setdecoding(pyodbc.SQL_WCHAR, encoding='cp1252')
+    conn.setencoding(encoding='utf-8')
+    return conn
     
 TAG_TABLE = [
-    "IP_AnalogDef", "IP_DiscreteDef", "IP_TextDef", "ip_analogdbldef",
+    "IP_AnalogDef", "IP_DiscreteDef", "IP_TextDef", "IP_AnalogDblDef",
     "KPIDef", "BatchKPIDef", "IP_ADef", "IP_DDef", "IP_QM_AnalogDef",
     "IP_QM_discrDef", "IP_QM_TextDef", "IP_SLV_ADef"
 ]
