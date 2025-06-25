@@ -1,4 +1,7 @@
 from datetime import datetime
+import pandas as pd
+import re
+
 
 def time_todecaseconds (value):
     if pd.isna(value):
